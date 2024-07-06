@@ -1,11 +1,13 @@
 <script>
     // IMPORT dei componenti
-    import HeaderLeft from './components/HeaderLeft.vue';
+    import HeaderLeft from './components/HeaderLeft.vue'
+    import MainApp from './components/MainApp.vue';
 
     // Export
     export default {
       components: {
-      HeaderLeft
+      HeaderLeft,
+      MainApp
   }
 }
 </script>
@@ -23,7 +25,7 @@
       <HeaderLeft />
 
       <!-- Main Part -->
-      
+      <MainApp />
     </div>
 
     <div class="debug"></div>

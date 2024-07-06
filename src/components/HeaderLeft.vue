@@ -32,7 +32,7 @@
 </template>
 
 <!-- CSS -->
-<style>
+<style scoped>
 
     /* Formattazione Header */
     .container{
