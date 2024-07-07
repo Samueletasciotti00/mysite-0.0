@@ -1,14 +1,16 @@
 <script>
     // IMPORT dei componenti
+    import AppRight from './components/AppRight.vue';
     import HeaderLeft from './components/HeaderLeft.vue'
     import MainApp from './components/MainApp.vue';
 
     // Export
     export default {
       components: {
-      HeaderLeft,
-      MainApp
-  }
+          HeaderLeft,
+          MainApp,
+          AppRight
+    }
 }
 </script>
 
@@ -19,7 +21,7 @@
   <div id="container">
 
     <!-- LEFT -->
-    <div class="debug">
+    <div id="info" class="space">
 
       <!-- Header -->
       <HeaderLeft />
@@ -28,7 +30,9 @@
       <MainApp />
     </div>
 
-    <div class="debug"></div>
+    <div id="pick" class="space">
+      <AppRight />
+    </div>
   </div>
 </template>
 
@@ -36,15 +40,30 @@
 
   /* Container dividi app */
   #container{
-    display: flex;
+
     width: 100vw;
     height: 100vh;
+    /* Flex */
+    display: flex;
+  }
+
+  #pick{
+    background-color: #2F4F4F;
+
+    /* Flex */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  #info{
+    background-color: #DCDCDC;
   }
 
   /* DEBUG */
-  .debug{
+  .space{
     width: 50vw;
     height: 100%;
-    border: 1px solid red;
+    border: 1px solid black;
   }
 </style>

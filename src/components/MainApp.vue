@@ -1,7 +1,7 @@
 <script>
     export default{
         data() {
-        
+           
         }
     }
 </script>
@@ -17,8 +17,8 @@
 
         <!-- Contatti -->
         <ul>
-            <li><b>Telefono:</b> +39 3791672035</li>
-            <li><b>Email:</b> samueletasciotti@icloud.com</li>
+            <li class="info"><b>Telefono:</b> +39 3791672035</li>
+            <li class="info"><b>Email:</b> samueletasciotti@icloud.com</li>
         </ul>
 
         <!-- Links -->
@@ -33,7 +33,9 @@
 <style scoped>
     /* Template */
     .box{
-        padding-top: 100px;
+        /* padding-top: 100px; */
+        margin: 150px;
+        gap: 20px;
         /* Flex */
         display: flex;
         flex-direction: column;
@@ -42,6 +44,11 @@
 
         h1{
             font-size: 45px;
+        }
+
+        ul{
+            list-style: none;
+            font-size: 20px;
         }
     }
 </style>
