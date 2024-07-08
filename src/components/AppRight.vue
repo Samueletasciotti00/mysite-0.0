@@ -2,7 +2,8 @@
     export default{
         data() {
             return{
-                img: 'src/assets/img/IMG_3032.JPG'
+                img: 'src/assets/img/IMG_3032.JPG',
+                x: 1
             }
               
         },
@@ -13,23 +14,23 @@
                 let destra = document.getElementById('pick');
                 let sinistra = document.getElementById('info');
 
-                
+                // Condizione di Transition
+                if(this.x == 1){ //Se è 1
 
-                if(x == null){
-                   this.x = 1;
-                } else if(this.x == 1){
                     //Ridimensionamento
                     destra.style.width = '100vw';
 
                     sinistra.style.width = '0';
 
+                    // Switch di stato per il prossimo click
                     this.x = 0;
                 } else {
                     //Ridimensionamento
                     destra.style.width = '50vw';
 
                     sinistra.style.width = '50vw';
-
+                    
+                    // Switch di stato per il prossimo click
                     this.x = 1;
                 }
                 
@@ -60,7 +61,7 @@
 
     .img:hover{
         animation-name: zooImg;
-        animation-duration: 1s;
+        animation-duration: 3s;
     }
 
     /* Gestione dell'hover sull' img */
@@ -77,4 +78,5 @@
             width: 400px;
         }
     }
+    
 </style>

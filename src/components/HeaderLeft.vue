@@ -25,7 +25,9 @@
         <!-- Voice -->
         <div id="voice">
             <ul>
-                <li @click="myFunction" v-for="voice in voices"><a href="#">{{ voice }}</a></li>
+                <li @click="myFunction(x)"><a href="#">Chi sono?</a></li>
+                <li><a href="#">CV</a></li>
+                <li><a href="#">Contatti</a></li>
             </ul>
         </div>
     </div>
