@@ -2,14 +2,12 @@
     export default{
         data() {
             return{
-                img: 'src/assets/img/IMG_3032.JPG',
-                x: 1
+                img: 'src/assets/img/IMG_3032.JPG'
             }
               
         },
         methods: {
-            myFunction(x) {
-
+            myFunction() {
                 //Selezionare classe/id per ridimensionamento
                 let destra = document.getElementById('pick');
                 let sinistra = document.getElementById('info');
@@ -18,23 +16,26 @@
                 if(this.x == 1){ //Se è 1
 
                     //Ridimensionamento
+                    sinistra.style.transition = '0.75s ease';
                     destra.style.width = '100vw';
 
                     sinistra.style.width = '0';
+                    sinistra.style.padding = '0';  
 
                     // Switch di stato per il prossimo click
                     this.x = 0;
                 } else {
                     //Ridimensionamento
+                    destra.style.transition = '0.75s ease';
                     destra.style.width = '50vw';
 
                     sinistra.style.width = '50vw';
+                    sinistra.style.padding = '20px';
                     
                     // Switch di stato per il prossimo click
                     this.x = 1;
                 }
                 
-
             }
         }
     }
@@ -54,10 +55,12 @@
     .img{
         width: 400px;
         border-radius: 100px;
-        img{
+        
+    }
+
+    .img img{
             max-width: 100%;
         }
-    }
 
     .img:hover{
         animation-name: zooImg;
@@ -78,5 +81,6 @@
             width: 400px;
         }
     }
+    
     
 </style>

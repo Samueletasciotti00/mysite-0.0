@@ -58,6 +58,7 @@
 
   #info{
     background-color: #DCDCDC;
+    padding: 20px;
   }
 
   /* DEBUG */

@@ -25,7 +25,7 @@
         <!-- Voice -->
         <div id="voice">
             <ul>
-                <li @click="myFunction(x)"><a href="#">Chi sono?</a></li>
+                <li @click="myFunction()">Chi sono?</li>
                 <li><a href="#">CV</a></li>
                 <li><a href="#">Contatti</a></li>
             </ul>
@@ -42,54 +42,21 @@
         display: flex;
         justify-content: space-around;
         align-items: center;
-
-        h3{
-            color: #2F4F4F;
-        }
     }
 
-    #voice{
-        
-        ul {
-            list-style: none;
-            
-            /* Flex */
-            display: flex;
-            justify-content: space-around;
-
-            /* List */
-            li{
-                margin: 10px;
-                font-size: 16px;
-            }
-
-            li a:hover{
-                animation-name: zooLi;
-                animation-duration: 1.5s;
-                color: red;
-            }
-
-            li a{ 
-                text-decoration: none;
-                color: black;
-                
-            }
-        }        
+    h3{
+        color: #2F4F4F;
     }
 
-    /* Gestione dell'hover su gli li */
-    @keyframes zooLi {
-        0% {
-            font-size: 16px;
-        }
-         
-        50% {
-            font-size: 21px;
-        }
-
-        100% {
-            font-size: 16px;
-        }
+    ul{
+        list-style: none;
+        cursor: pointer;
+        display: flex;
+        gap: 10px;
     }
     
+    ul li a{
+        text-decoration: none;
+        color: #2F4F4F;
+    }
 </style>

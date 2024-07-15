@@ -1,7 +1,9 @@
 <script>
     export default{
         data() {
-           
+           return{
+            
+           }
         }
     }
 </script>
@@ -23,7 +25,7 @@
 
         <!-- Links -->
 
-        <span><a href="">Linkedin</a></span>
+        <span><a href="">Linkedin</a> <i class="fa-brands fa-linkedin"></i></span>
     </div>
         
 
@@ -41,14 +43,21 @@
         flex-direction: column;
         align-items: center;
         align-content: left;
+        text-align: center;
+    }
 
-        h1{
-            font-size: 45px;
-        }
+    /* Titol Of Page */
+    h1{
+        font-size: 35px;
+    }
 
-        ul{
-            list-style: none;
-            font-size: 20px;
-        }
+    /* List Decoration */
+    ul{
+        list-style: none;
+    }
+
+    span a{
+        text-decoration: none;
+        color: red;
     }
 </style>
