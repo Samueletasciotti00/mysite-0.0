@@ -1,33 +1,49 @@
+// componente principale
 <script>
-    // IMPORT dei componenti
-    import AppRight from './components/AppRight.vue';
-    import HeaderLeft from './components/HeaderLeft.vue'
-    import MainApp from './components/MainApp.vue';
+// IMPORT dei componenti
+import AppRight from "./components/AppRight.vue";
+import Header from "./components/Header.vue";
+import NameApp from "./components/NameApp.vue";
+import Contacts from "./page/Contacts.vue";
 
-    // Export
-    export default {
-      components: {
-          HeaderLeft,
-          MainApp,
-          AppRight
-    }
-}
+// Export
+export default {
+  components: {
+    Header,
+    NameApp,
+    AppRight,
+    Contacts,
+  },
+  data() {
+    return {
+      showContactDetails: false,
+    };
+  },
+  methods: {
+    handleShowContactDetails() {
+      this.showContactDetails = true;
+    },
+  },
+};
 </script>
 
 <!-- Componenti di pagina -->
 <template>
-  
   <!-- Dividere in due sezioni la pagina -->
   <div id="container">
-
     <!-- LEFT -->
     <div id="info" class="space">
-
       <!-- Header -->
-      <HeaderLeft />
+      <Header />
 
-      <!-- Main Part -->
-      <MainApp />
+      <!-- Move in to the page -->
+      <router-view v-slot="{Component}">
+
+        <transition name="slide">
+
+          <component :is="Component" :key="$route.path"></component>
+        </transition>
+      </router-view>
     </div>
 
     <div id="pick" class="space">
@@ -37,34 +53,49 @@
 </template>
 
 <style scoped>
+/* Container dividi app */
+#container {
+  width: 100vw;
+  min-height: 100vh;
+  /* Flex */
+  display: flex;
+}
 
-  /* Container dividi app */
-  #container{
+#pick {
+  background-color: #2f4f4f;
+  text-align: center;
+  min-height: 100vh;
+  /* Flex */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
 
-    width: 100vw;
-    height: 100vh;
-    /* Flex */
-    display: flex;
-  }
+#info {
+  background-color: #dcdcdc;
+  padding: 20px;
+    min-height: 100vh;
+}
 
-  #pick{
-    background-color: #2F4F4F;
+/* DEBUG */
+.space {
+  width: 50vw;
+  height: 100%;
+}
 
-    /* Flex */
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-  }
+.slide-enter-active{
 
-  #info{
-    background-color: #DCDCDC;
-    padding: 20px;
-  }
+  transition: opacity 1s, transform 1s;
+}
 
-  /* DEBUG */
-  .space{
-    width: 50vw;
-    height: 100%;
-    border: 1px solid black;
-  }
+.slide-enter-from{
+
+  opacity: 0;
+  transform: translateY(-100%);
+}
+.slide-leave-to{
+  opacity: 1;
+  transform: translateY(-100%);
+}
 </style>
