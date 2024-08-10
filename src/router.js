@@ -1,8 +1,9 @@
 import { createWebHistory, createRouter } from 'vue-router';
 
-import NameApp from './components/NameApp.vue';
+import NameApp from './page/NameApp.vue';
 import Contacts from './page/Contacts.vue';
 import Header from './components/Header.vue'
+import Icons from './page/Icons.vue'
 
 const router = createRouter({
   history: createWebHistory(),
@@ -16,6 +17,11 @@ const router = createRouter({
           path: '/contacts',
           name: 'contacts',
           component: Contacts
+      },
+      {
+        path: '/lenguages',
+        name: 'lenguages',
+        component: Icons
       }
   ]
 });

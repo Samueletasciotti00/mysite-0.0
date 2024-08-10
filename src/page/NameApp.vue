@@ -24,11 +24,13 @@ export default {
 </template>
 
 <!-- CSS -->
-<style scoped>
+<style lang="scss" scoped>
+@use 'src/style/general.scss' as *;
+
 /* Template */
 .box {
   /* padding-top: 100px; */
-  margin: 150px;
+  margin: 35% auto;
   gap: 20px;
   /* Flex */
   display: flex;
@@ -50,7 +52,7 @@ ul {
 
 span a {
   text-decoration: none;
-  color: green;
+  color: $green;
 }
 
 </style>

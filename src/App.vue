@@ -3,7 +3,7 @@
 // IMPORT dei componenti
 import AppRight from "./components/AppRight.vue";
 import Header from "./components/Header.vue";
-import NameApp from "./components/NameApp.vue";
+import NameApp from "./page/NameApp.vue";
 import Contacts from "./page/Contacts.vue";
 
 // Export
@@ -17,12 +17,53 @@ export default {
   data() {
     return {
       showContactDetails: false,
+      status:true
     };
   },
   methods: {
     handleShowContactDetails() {
       this.showContactDetails = true;
     },
+    changeMode() {
+      //Riconoscere lo stato dell'app
+
+      //Dichiarazione Variabili per cambio colore del tema;
+      let colorRight = document.getElementById('pick');
+      let colorLeft =  document.getElementById('info');
+
+      // Modifica dell'icona bottone;
+      let bottone = document.querySelector('button');
+
+      if(this.status === true){
+
+        // Turn in to LIGHT;
+        colorRight.style.backgroundColor = '#80c8aa'; //BK_GRD Right;
+        colorLeft.style.backgroundColor = '#ffffff';
+
+        // Rimozione del simbolo precedente;
+        bottone.innerHTML = '';
+        //Aggiunta del simbolo successivo;
+        bottone.innerHTML = '<i class="fa-regular fa-lightbulb" style="color: #FFD43B;"></i>';
+
+        // Settare lo stato
+        this.status = false;
+      } else {
+
+        // Turn in to DARK;
+        colorRight.style.backgroundColor = '#2f4f4f';
+        colorLeft.style.backgroundColor = '#dcdcdc';
+
+        // Rimozione del simbolo precedente;
+        bottone.innerHTML = '';
+        //Aggiunta del simbolo successivo;
+        bottone.innerHTML = '<i class="fa-regular fa-lightbulb" style="color: black;"></i>';
+
+        // Settare lo stato
+        this.status = true;
+      }
+
+      
+    }
   },
 };
 </script>
@@ -33,6 +74,10 @@ export default {
   <div id="container">
     <!-- LEFT -->
     <div id="info" class="space">
+
+      <!-- Mode Button -->
+      <button @click="changeMode"><i class="fa-regular fa-lightbulb" style="color: black;"></i></button>
+
       <!-- Header -->
       <Header />
 
@@ -52,17 +97,18 @@ export default {
   </div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
+@use './style/general.scss' as *;
 /* Container dividi app */
 #container {
   width: 100vw;
-  min-height: 100vh;
+  height: 100vh;
   /* Flex */
   display: flex;
 }
 
 #pick {
-  background-color: #2f4f4f;
+  background-color: $wood; //Sass
   text-align: center;
   min-height: 100vh;
   /* Flex */
@@ -73,9 +119,9 @@ export default {
 }
 
 #info {
-  background-color: #dcdcdc;
+  background-color: $light;
   padding: 20px;
-    min-height: 100vh;
+  max-height: 100vh;
 }
 
 /* DEBUG */
@@ -86,16 +132,30 @@ export default {
 
 .slide-enter-active{
 
-  transition: opacity 1s, transform 1s;
+  transition: opacity 1s, transform 2s;
 }
 
 .slide-enter-from{
 
   opacity: 0;
-  transform: translateY(-100%);
+  transform: translateY(150%);
 }
 .slide-leave-to{
   opacity: 1;
-  transform: translateY(-100%);
+  transform: translateY(0);
+}
+
+// Button for turn mods
+button{
+  background: transparent;
+  border: none;
+  font-size: 22px;
+  position: absolute;
+
+  transition: 1s ease;
+
+  &:hover {
+    font-size: 28px;
+  }
 }
 </style>
