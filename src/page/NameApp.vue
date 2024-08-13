@@ -42,7 +42,7 @@ export default {
 
 /* Titol Of Page */
 h1 {
-  font-size: 35px;
+  font-size: 45px;
 }
 
 /* List Decoration */

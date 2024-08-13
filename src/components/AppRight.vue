@@ -2,7 +2,7 @@
 export default {
   data() {
     return {
-      x: 0,  
+      x: 0, 
       img: "src/assets/img/IMG_3032.JPG",
     };
   },
@@ -18,42 +18,40 @@ export default {
     
 
       // Condizione di Transition
-      if (this.x === 1) {
-        //Se è 1
-      
-        //Ridimensionamento
-        sinistra.style.transition = "0.75s ease";
-        destra.style.width = "100vw";
+         if (this.x === 1 && matchMedia('only screen and (min-width: 920px)').matches) {
+          //Se è 1
+        
+          //Ridimensionamento
+          sinistra.style.transition = "0.75s ease";
+          destra.style.width = "100vw";
 
-        sinistra.style.width = "0";
-        sinistra.style.padding = "0";
-        // Switch di stato per il prossimo click
-        this.x = 0;
+          sinistra.style.width = "0";
+          sinistra.style.padding = "0";
+          // Switch di stato per il prossimo click
+          this.x = 0;
 
-        section.style.display = 'block';
-        section.style.opacity ='1';
+          section.style.display = 'block';
+          section.style.opacity ='1';
 
 
-        // Rimozione dell effetto zoom sull'immagine al click;
-        hoverImg.style.animationName = 'zooImg';
-      } else {
-        //Ridimensionamento
-        destra.style.transition = "0.75s ease";
-        destra.style.width = "50vw";
+          // Rimozione dell effetto zoom sull'immagine al click;
+          hoverImg.style.animationName = 'zooImg';
+        } else if (matchMedia('only screen and (min-width: 920px)').matches) {
+          //Ridimensionamento
+          destra.style.transition = "0.75s ease";
+          destra.style.width = "50vw";
 
-        sinistra.style.width = "50vw";
-        sinistra.style.padding = "20px";
-        // Switch di stato per il prossimo click
-        this.x = 1;
+          sinistra.style.width = "50vw";
+          sinistra.style.padding = "20px";
+          // Switch di stato per il prossimo click
+          this.x = 1;
 
-        section.style.display = 'none';
-        section.style.opacity ='1';
-
-        //Aggiunta dell effetto zoom sull'immagine al click;
-        console.log('Ok bro')
-      }
+          section.style.display = 'none';
+          section.style.opacity ='1';
+        }
+       
     },
-  },
+  }
 };
 </script>
 
@@ -74,7 +72,7 @@ export default {
             Sono un ragazzo di 23 anni, studio programmazione web da ottobre 2023, mi piace realizzare siti minimal, fornire all'utente un esperienza grafica appagante e funzionale,
             se sei interessato a conoscermi non esitare a contattarmi!
 
-            Per quanto riguarda le tecnologie che utilizzo ti basta tornare alla home page e premere su "liguaggi".
+            Per quanto riguarda le tecnologie che utilizzo ti basta tornare alla home page e premere su "Skills".
         </p>
     </div>
   </div>
@@ -100,7 +98,7 @@ img{
 }
 
 .img span {
-  color: $wood;
+  color: transparent;
   font-size: 20px;
 }
 
@@ -140,15 +138,15 @@ p{
 /* Gestione dell'hover sull' img */
 @keyframes zooImg {
   0% {
-    width: 400px;
+    width: 300px;
   }
 
   50% {
-    width: 450px;
+    width: 350px;
   }
 
   100% {
-    width: 400px;
+    width: 250px;
   }
 }
 

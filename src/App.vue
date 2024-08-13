@@ -5,6 +5,7 @@ import AppRight from "./components/AppRight.vue";
 import Header from "./components/Header.vue";
 import NameApp from "./page/NameApp.vue";
 import Contacts from "./page/Contacts.vue";
+import Icons from './page/Icons.vue';
 
 // Export
 export default {
@@ -13,6 +14,7 @@ export default {
     NameApp,
     AppRight,
     Contacts,
+    Icons
   },
   data() {
     return {
@@ -91,7 +93,7 @@ export default {
       </router-view>
     </div>
 
-    <div id="pick" class="space">
+    <div id="pick" class="space media">
       <AppRight />
     </div>
   </div>
@@ -128,6 +130,15 @@ export default {
 .space {
   width: 50vw;
   height: 100%;
+}
+
+@media screen and (max-width: 920px) {
+  #container{
+    flex-direction: column;
+  }
+  .space{
+    width: 100vw;
+  }
 }
 
 .slide-enter-active{

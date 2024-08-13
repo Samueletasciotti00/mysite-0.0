@@ -21,8 +21,8 @@ export default {
           component: Contacts,
         },
         {
-          path: "/lenguages",
-          name: "LANGUAGES",
+          path: "/skills",
+          name: "SKILLS",
           component: Icons
         }  
       ]

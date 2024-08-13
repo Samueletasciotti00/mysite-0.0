@@ -1,6 +1,12 @@
 <template>
-  <div class="box-icons">
-    <div>
+
+
+  <div class="box">
+
+    <h1>Skills</h1>
+
+    <div class="box-icons">
+      <div>
       <!-- HTML -->
       <i class="fa-brands fa-html5" style="color: #c6270b"></i>
       <span>HTML</span>
@@ -48,12 +54,19 @@
         <i class="fa-brands fa-bootstrap" style="color: #B197FC;"></i>
         <span>Bootstrap</span>
     </div>
+
+    <div>
+      <!-- Git -->
+      <i class="fa-brands fa-git-alt" style="color: #ff1551;"></i>
+      <span>Git</span>
+    </div>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "Icons",
+  name: "Icons"
 };
 </script>
 
@@ -64,7 +77,7 @@ export default {
 
   width: 70%;
   /* padding-top: 100px; */
-  margin: 45% auto;
+  margin: 10% auto;
 
   text-align: center;
   /* Flex */
@@ -72,6 +85,22 @@ export default {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+}
+
+
+.box {
+  /* padding-top: 100px; */
+  margin: 35% auto;
+  // gap: 20px;
+  /* Flex */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.box h1{
+  font-size: 45px;
 }
 
 /* Gestione singoli elementi  */

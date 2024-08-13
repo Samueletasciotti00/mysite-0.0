@@ -2,7 +2,7 @@
   <!-- Pagina per i contatti -->
   <div class="box">
     <!-- Titolo Principale -->
-    <h1>Samuele Tasciotti</h1>
+    <h1>Contacts</h1>
 
     <!-- Contatti -->
     <ul id="contact" @cambioStato="receiveEmit">
@@ -46,7 +46,7 @@ export default {
 
 /* Titol Of Page */
 h1 {
-  font-size: 35px;
+  font-size: 45px;
 }
 
 /* List Decoration */
