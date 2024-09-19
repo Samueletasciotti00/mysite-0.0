@@ -5,7 +5,8 @@ import AppRight from "./components/AppRight.vue";
 import Header from "./components/Header.vue";
 import NameApp from "./page/NameApp.vue";
 import Contacts from "./page/Contacts.vue";
-import Icons from './page/Icons.vue';
+import Icons from "./page/Icons.vue";
+import Story from "./page/Story.vue";
 
 // Export
 export default {
@@ -14,12 +15,14 @@ export default {
     NameApp,
     AppRight,
     Contacts,
-    Icons
+    Icons,
+    Story,
   },
   data() {
     return {
+      //Return degli status per funzione
       showContactDetails: false,
-      status:true
+      status: true,
     };
   },
   methods: {
@@ -30,42 +33,40 @@ export default {
       //Riconoscere lo stato dell'app
 
       //Dichiarazione Variabili per cambio colore del tema;
-      let colorRight = document.getElementById('pick');
-      let colorLeft =  document.getElementById('info');
+      let colorRight = document.getElementById("pick");
+      let colorLeft = document.getElementById("info");
 
       // Modifica dell'icona bottone;
-      let bottone = document.querySelector('button');
+      let bottone = document.querySelector("button");
 
-      if(this.status === true){
-
+      if (this.status === true) {
         // Turn in to LIGHT;
-        colorRight.style.backgroundColor = '#80c8aa'; //BK_GRD Right;
-        colorLeft.style.backgroundColor = '#ffffff';
+        colorRight.style.backgroundColor = "#80c8aa"; //BK_GRD Right;
+        colorLeft.style.backgroundColor = "#ffffff";
 
         // Rimozione del simbolo precedente;
-        bottone.innerHTML = '';
+        bottone.innerHTML = "";
         //Aggiunta del simbolo successivo;
-        bottone.innerHTML = '<i class="fa-regular fa-lightbulb" style="color: #FFD43B;"></i>';
+        bottone.innerHTML =
+          '<i class="fa-regular fa-lightbulb" style="color: #FFD43B;"></i>';
 
         // Settare lo stato
         this.status = false;
       } else {
-
         // Turn in to DARK;
-        colorRight.style.backgroundColor = '#2f4f4f';
-        colorLeft.style.backgroundColor = '#dcdcdc';
+        colorRight.style.backgroundColor = "#2f4f4f";
+        colorLeft.style.backgroundColor = "#dcdcdc";
 
         // Rimozione del simbolo precedente;
-        bottone.innerHTML = '';
+        bottone.innerHTML = "";
         //Aggiunta del simbolo successivo;
-        bottone.innerHTML = '<i class="fa-regular fa-lightbulb" style="color: black;"></i>';
+        bottone.innerHTML =
+          '<i class="fa-regular fa-lightbulb" style="color: black;"></i>';
 
         // Settare lo stato
         this.status = true;
       }
-
-      
-    }
+    },
   },
 };
 </script>
@@ -75,20 +76,19 @@ export default {
   <!-- Dividere in due sezioni la pagina -->
   <div id="container">
     <!-- LEFT -->
-    <div id="info" class="space">
-
+    <div id="info" class="space media">
       <!-- Mode Button -->
-      <button @click="changeMode"><i class="fa-regular fa-lightbulb" style="color: black;"></i></button>
+      <button @click="changeMode">
+        <i class="fa-regular fa-lightbulb" style="color: black"></i>
+      </button>
 
       <!-- Header -->
-      <Header />
+      <Header/>
 
       <!-- Move in to the page -->
-      <router-view v-slot="{Component}">
-
+      <router-view   v-slot="{ Component }">
         <transition name="slide">
-
-          <component :is="Component" :key="$route.path"></component>
+          <component  :is="Component" :key="$route.path"> </component>
         </transition>
       </router-view>
     </div>
@@ -100,10 +100,10 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-@use './style/general.scss' as *;
+@use "./style/general.scss" as *;
 /* Container dividi app */
 #container {
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   /* Flex */
   display: flex;
@@ -128,45 +128,37 @@ export default {
 
 /* DEBUG */
 .space {
-  width: 50vw;
+  width: 50%;
   height: 100%;
 }
 
-@media screen and (max-width: 920px) {
-  #container{
+@media screen and (min-width: 420px) and (max-width: 920px) {
+  #container {
     flex-direction: column;
   }
-  .space{
-    width: 100vw;
+  .space {
+    width: 100% !important;
   }
 }
 
-.slide-enter-active{
-
+.slide-enter-active {
   transition: opacity 1s, transform 2s;
 }
 
-.slide-enter-from{
-
+.slide-enter-from {
   opacity: 0;
   transform: translateY(150%);
 }
-.slide-leave-to{
+.slide-leave-to {
   opacity: 1;
   transform: translateY(0);
 }
 
 // Button for turn mods
-button{
+button {
   background: transparent;
   border: none;
   font-size: 22px;
-  position: absolute;
-
-  transition: 1s ease;
-
-  &:hover {
-    font-size: 28px;
-  }
+  transition: 4s ease;
 }
 </style>
